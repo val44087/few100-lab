@@ -21,8 +21,9 @@
                     <span class="input-group-text">$</span>
                 </div>
                 <input type="number"
+                       min="0"
                        class="form-control"
-                       id="itemToCalc"
+                       id="amountToCalc"
                        aria-label="Amount (to the nearest dollar)">
             </div>
             <div class="input-group mb-3">
@@ -50,11 +51,12 @@
                 You are tipping <span id="percent">0</span>%.
             </div>
 
+
             <ul class="list-group">
                 <li class="list-group-item">Bill Amount: $<span id="billAmount">0</span></li>
                 <li class="list-group-item">Tip Percentage: <span id="tipPercent">0</span>%</li>
                 <li type='number'
-                    class="list-group-item">Amount of Tip: $<span id="count">0</span></li>
+                    class="list-group-item">Amount of Tip: $<span id="tipAmount">0</span></li>
                 <li class="list-group-item">Total to be Paid: $<span id="totalBill">0</span> </li>
             </ul>
         </main>
