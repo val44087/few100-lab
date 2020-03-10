@@ -19,21 +19,15 @@ document.getElementById('calcBtn2').addEventListener('click', calcTip);
 document.getElementById('calcBtn3').addEventListener('click', calcTip);
 
 function calcStoredTip() {
+
   const storedTip = localStorage.getItem('calcTip');
   const storedBtn = localStorage.getItem('calcBtn');
-
 
   if (storedTip) {
     const tipStored = JSON.parse(storedTip);
     const btnStored = JSON.parse(storedBtn);
     calcTheBill(tipStored, btnStored);
-  } else {
-    if (NaN) {
-      tipPercent.innerText = null;
-      billAmount.innerText = null;
-      tipAmount.innerText = null;
-      totalBill.innerHTML = null;
-    }
+    clearNumbers();
   }
 }
 
@@ -44,11 +38,17 @@ function calcTip() {
   calcTheBill(tip, btnId);
 }
 
+function clearNumbers() {
+  if (totalBill.innerText === 'NaN') {
+    totalBill.innerText = '';
+    billAmount.innerText = '';
+    tipPercent.innerText = '';
+    tipAmount.innerText = '';
+  }
+}
 
 function calcTheBill(tip: number, btnId: string) {
-
   // const that = this as HTMLButtonElement;
-
   if (amountToCalc.valueAsNumber === 0) {
     amountToCalc.valueAsNumber = 0;
     alert('Value cant be empty');
